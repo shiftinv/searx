@@ -4,8 +4,8 @@
 {%- endmacro %}
 
 <!-- Draw favicon -->
-{% macro draw_favicon(favicon) -%}
-    <img width="32" height="32" class="favicon" src="{{ url_for('static', filename='themes/oscar/img/icons/' + favicon + '.png') }}" alt="{{ favicon }}" />
+{% macro draw_favicon(url) -%}
+    <img width="16" height="16" class="favicon" referrerpolicy="no-referrer" src="https://external-content.duckduckgo.com/ip3/{{ url.rpartition('//')[-1].partition('/')[0] }}.ico" />
 {%- endmacro %}
 
 {%- macro result_link(url, title, classes='', id='') -%}
@@ -14,7 +14,7 @@
 
 <!-- Draw result header -->
 {% macro result_header(result, favicons, id) -%}
-<h4 class="result_header" id="result-{{id}}">{% if result.engine~".png" in favicons %}{{ draw_favicon(result.engine) }}{% endif %}{% if result.url %}{{ result_link(result.url, result.title|safe, id=id) }}{% else %}{{ result.title|safe}}{% endif %}</h4>
+<h4 class="result_header" id="result-{{id}}">{% if result.url %} {{ draw_favicon(result.url) }} {% endif %}{% if result.url %}{{ result_link(result.url, result.title|safe, id=id) }}{% else %}{{ result.title|safe}}{% endif %}</h4>
 {%- endmacro %}
 
 <!-- Draw result sub header -->

@@ -8,7 +8,7 @@
         <div class="modal-wrapper">{{- "" -}}
             <div class="modal-header">{{- "" -}}
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>{{- "" -}}
-                <h4 class="modal-title">{% if result.engine~".png" in favicons %}{{ draw_favicon(result.engine) }} {% endif %}{{ result.title|striptags }}</h4>{{- "" -}}
+                <h4 class="modal-title">{% if result.url %} {{ draw_favicon(result.url) }} {% endif %}{{ result.title|striptags }}</h4>{{- "" -}}
             </div>{{- "" -}}
             <div class="modal-body">{{- "" -}}
                 <img class="img-responsive center-block" src="{% if result.thumbnail_src %}{{ image_proxify(result.thumbnail_src) }}{% else %}{{ image_proxify(result.img_src) }}{% endif %}" alt="{{ result.title|striptags }}">
