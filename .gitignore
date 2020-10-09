@@ -18,6 +18,7 @@ setup.cfg
 *.swp
 
 /node_modules
+package-lock.json
 
 .tx/
 
