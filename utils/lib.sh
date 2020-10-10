@@ -385,7 +385,7 @@ install_template() {
     for i in "$@"; do
         case $i in
             --no-eval) do_eval=0; shift ;;
-            --variant=*) variant=":${i#*=}"; shift ;;
+            --variant=*) variant="+${i#*=}"; shift ;;
             *) pos_args+=("$i") ;;
         esac
     done
